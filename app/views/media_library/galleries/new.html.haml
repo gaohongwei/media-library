@@ -1,0 +1,8 @@
+%h1
+  Galleries#new
+%p
+  Find me in app/views/media_library/galleries/new.html.erb
+
+= form_for @gallery, url: { action: "create" } do |f|
+  = f.text_field :title
+  = f.submit

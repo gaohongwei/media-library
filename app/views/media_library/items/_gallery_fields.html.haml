@@ -1,0 +1,8 @@
+%div
+  %h3 Galleries
+  %ul
+    - @galleries.each do |gallery|
+      %li
+        %label
+          = gallery.title
+        = check_box_tag "profile[gallery_ids][]", gallery.id, @item.galleries.include?(gallery)

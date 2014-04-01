@@ -1,0 +1,6 @@
+%div#image-thumbnail
+  = preview_image_tag
+%div
+  - if @item.id.nil? || (@item.id? && @item.is_image?)
+    = f.text_field :alt_tag, size: "60x8", placeholder: "Enter Alternative Text For Image"
+

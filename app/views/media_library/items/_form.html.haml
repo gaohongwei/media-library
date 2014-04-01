@@ -1,0 +1,35 @@
+= form_for @item, multipart: true  do |f|
+  = render 'file_fields', f: f
+  %div
+    %h1
+  = render 'title_fields', f: f
+  = render 'image_fields', f: f
+  = render 'variation_fields', f: f
+  = render 'gallery_fields'
+  = render 'tag_fields', f: f
+  %div
+    = f.submit "Save Media"
+    %input{name: "upload_id", id: "upload_id", type: "hidden"}
+    %input{name: "upload_type", type: "hidden", id: "upload_type"}
+    = f.hidden_field :content_type, id: "upload_content_type"
+    = f.hidden_field :user_id
+
+- content_for :javascripts do
+  :javascript
+    $(function() {
+      var uploader = MediaLibrary.Uploader.initUploader({
+        url : '#{uploads_path}',
+        multipart_params: {
+          '#{request_forgery_protection_token}': '#{form_authenticity_token}',
+          '#{request.session_options[:key]}': '#{request.session_options[:id]}'
+        },
+        filters : [
+          {title : "files", extensions : "jpg,gif,png,jpeg,avi,pdf,txt,doc"},
+        ]
+      });
+
+      $('#uploadfiles').click(function(e) {
+        uploader.start();
+        e.preventDefault();
+      });
+    });

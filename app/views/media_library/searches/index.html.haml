@@ -1,0 +1,24 @@
+%h1
+  Search Results
+- if @results.nil? || @results.empty?
+  %p No results for that search.
+-else
+  %table
+    %thead
+      %tr
+        %th Item
+        %th Type
+        %th Edit
+        %th Delete
+    %tbody
+      - @results.each do |result|
+        %tr
+          %td
+            = link_to result.title, edit_profile_path(result)
+          %td
+            = result.content_type
+          %td
+            = link_to "edit", edit_profile_path(result)
+          %td
+            = link_to "remove media", "items/#{result.id}", method: :delete, confirm: "Are you sure?", remote: true
+=  will_paginate @results

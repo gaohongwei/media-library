@@ -1,0 +1,9 @@
+= MediaLibrary
+
+NOTES
+
+Run migrations in the engine directory
+Server is run from spec/dummy
+Many common rake tasks should prefixed with app, i.e. app:db:test:prepare and app:routes 
+
+This project rocks and uses MIT-LICENSE.

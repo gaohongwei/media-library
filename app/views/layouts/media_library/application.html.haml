@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title
+      MediaLibrary
+    = stylesheet_link_tag    "media_library/application", :media => "all"
+    = javascript_include_tag "media_library"
+    = csrf_meta_tags
+  %body
+    = yield
+    = yield :javascripts
+

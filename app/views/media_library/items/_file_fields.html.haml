@@ -1,0 +1,13 @@
+- if @item.id.nil? || (@item.id? && @item.profileable.class.base_class == "MediaLibrary::Linked")
+  %h3 Select Files To Upload
+  #file-uploader
+    %div
+      %div
+        = f.file_field :file, id: "choose-files"
+    #filelist
+- unless @item.id?
+  %h3 - OR -
+- if @item.id.nil? || (@item.id? && @item.profileable.class.base_class == "MediaLibrary::Linked")
+  %h3 Enter URL To Load Media Remotely
+  %div
+    = f.text_field :url, size: "60x8", placeholder: "Enter URL To Import Media From External Website"

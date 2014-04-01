@@ -1,0 +1,8 @@
+%div
+  %h3 Tags
+  = f.text_field :tag_list, placeholder: "Enter Image Tags"
+  - unless @item.tag_list.empty?
+    %ul
+      - @item.tag_list.each do |tag|
+        %li
+          = tag

@@ -1,0 +1,14 @@
+%h1
+  = @gallery.title
+
+= link_to "Add New Media", new_profile_path(gallery: @gallery.title)
+
+- @items.each do |item|
+  %h2
+    %a{href: "#{edit_profile_path(item)}"}
+      = item.title
+  %p
+    = item.description
+  %p
+    = item.content_type
+
