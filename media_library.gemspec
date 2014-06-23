@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<acts-as-taggable-on>, ["~> 2.3.1"])
-      s.add_runtime_dependency(%q<bootstrap-sass>, ["~> 2.0.4.2"])
+      s.add_runtime_dependency(%q<bootstrap-sass>, ["~> 2.3.1.0"])
       s.add_runtime_dependency(%q<carrierwave>, ["~> 0.6.2"])
       s.add_runtime_dependency(%q<coffee-rails>, ["~> 3.2.1"])
       s.add_runtime_dependency(%q<ejs>, ["= 1.0.0"])
